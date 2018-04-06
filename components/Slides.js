@@ -6,11 +6,11 @@ const SCREEN_WIDTH = Dimensions.get('window').width;
 class Slides extends Component {
   // helper methods
   renderSlides () {
-    return this.props.data.map(({ text }) => {
+    return this.props.data.map(({ text, color }) => {
       return (
         <View
           key={text}
-          style={styles.slide}
+          style={[styles.slide, { backgroundColor: color }]}
         >
           <Text style={styles.slideText}>{text}</Text>
         </View>
@@ -41,7 +41,8 @@ const styles = {
   slideText: {
     fontSize: 30,
     marginLeft: 50,
-    marginRight: 50
+    marginRight: 50,
+    color: '#f9f9f9'
   }
 };
 
