@@ -1,12 +1,14 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { TabNavigator } from 'react-navigation';
+import { TabNavigator, StackNavigator } from 'react-navigation';
 
 // import screens
 import WelcomeScreen from './screens/WelcomeScreen';
 import AuthScreen from './screens/AuthScreen';
 import MapScreen from './screens/MapScreen';
 import DeckScreen from './screens/DeckScreen';
+import ReviewScreen from './screens/ReviewScreen';
+import SettingsScreen from './screens/SettingsScreen';
 
 export default class App extends React.Component {
   // render method
@@ -17,7 +19,13 @@ export default class App extends React.Component {
       mainFlowRoute: {
         screen: TabNavigator({
           mapRoute: { screen: MapScreen },
-          deckRoute: { screen: DeckScreen }
+          deckRoute: { screen: DeckScreen },
+          reviewFlowRoute: {
+            screen: StackNavigator({
+              reviewRoute: { screen: ReviewScreen },
+              settingsRoute: { screen: SettingsScreen }
+            })
+          }
         })
       }
     });
