@@ -40,6 +40,7 @@ const styles = {
   },
   slideText: {
     fontSize: 30,
+    textAlign: 'center',
     marginLeft: 50,
     marginRight: 50,
     color: '#f9f9f9'
