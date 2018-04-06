@@ -14,7 +14,7 @@ class WelcomeScreen extends Component {
   // render method
   render () {
     return (
-      <View>
+      <View style={{ flex: 1 }}>
         <Slides data={SLIDE_DATA} />
       </View>
     );
