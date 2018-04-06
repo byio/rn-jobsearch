@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
 import { ScrollView, View, Text, Dimensions } from 'react-native';
+import { Button } from 'react-native-elements';
 
 const SCREEN_WIDTH = Dimensions.get('window').width;
 
 class Slides extends Component {
   // helper methods
+  renderLastSlideButton (index) {
+    if (index === this.props.data.length - 1) {
+      return (
+        <Button
+          title="Onwards :)"
+          raised
+        />
+      );
+    }
+  }
+
   renderSlides () {
-    return this.props.data.map(({ text, color }) => {
+    return this.props.data.map(({ text, color }, index) => {
       return (
         <View
           key={text}
           style={[styles.slide, { backgroundColor: color }]}
         >
           <Text style={styles.slideText}>{text}</Text>
+          {this.renderLastSlideButton(index)}
         </View>
       );
     });
