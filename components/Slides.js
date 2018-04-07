@@ -11,6 +11,7 @@ class Slides extends Component {
       return (
         <Button
           buttonStyle={styles.button}
+          onPress={this.props.onSlidesComplete}
           title="Onwards :)"
           raised
         />

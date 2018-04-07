@@ -11,11 +11,16 @@ const SLIDE_DATA = [
 ];
 
 class WelcomeScreen extends Component {
+  // helper methods
+  onSlidesComplete = () => {
+    this.props.navigation.navigate('authRoute');
+  }
+
   // render method
   render () {
     return (
       <View style={{ flex: 1 }}>
-        <Slides data={SLIDE_DATA} />
+        <Slides data={SLIDE_DATA} onSlidesComplete={this.onSlidesComplete}/>
       </View>
     );
   }
