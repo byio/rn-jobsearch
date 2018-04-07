@@ -10,6 +10,7 @@ class Slides extends Component {
     if (index === this.props.data.length - 1) {
       return (
         <Button
+          buttonStyle={styles.button}
           title="Onwards :)"
           raised
         />
@@ -57,6 +58,11 @@ const styles = {
     marginLeft: 50,
     marginRight: 50,
     color: '#f9f9f9'
+  },
+  button: {
+    backgroundColor: '#0288D1',
+    marginTop: 30,
+    borderRadius: 10
   }
 };
 
