@@ -1,6 +1,10 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
 import { TabNavigator, StackNavigator } from 'react-navigation';
+import { Provider } from 'react-redux';
+
+// import redux store
+import store from './store';
 
 // import screens
 import WelcomeScreen from './screens/WelcomeScreen';
@@ -32,7 +36,9 @@ export default class App extends React.Component {
 
     return (
       // <View style={styles.container}>
-      <MainNavigator/>
+      <Provider store={store}>
+        <MainNavigator/>
+      </Provider>
       // </View>
     );
   }
