@@ -29,7 +29,7 @@ const doFacebookLogin = async dispatch => {
   // invoke facebook login function imported from expo
   let { type, token } = await Facebook.logInWithReadPermissionsAsync(
     FACEBOOK_APP_ID,
-    permissions: ['public_profile']
+    { permissions: ['public_profile'] }
   );
   // login failure
   if (type === 'cancel') {
