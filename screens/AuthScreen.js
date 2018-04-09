@@ -10,6 +10,17 @@ class AuthScreen extends Component {
     this.props.facebookLogin();
   }
 
+  componentWillReceiveProps (nextProps) {
+    this.onAuthComplete(nextProps);
+  }
+
+  // helper functions
+  onAuthComplete (props) {
+    if (props.token) {
+      this.props.navigation.navigate('mapRoute');
+    }
+  }
+
   // render method
   render () {
     return (
@@ -23,4 +34,9 @@ class AuthScreen extends Component {
   }
 }
 
-export default connect(null, actions)(AuthScreen);
+// mapStateToProps; destructure the auth piece of state from the global state object
+const mapStateToProps = ({ auth }) => {
+  return { token: auth.token }
+}
+
+export default connect(mapStateToProps, actions)(AuthScreen);
