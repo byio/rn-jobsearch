@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, AsyncStorage } from 'react-native';
 import { AppLoading } from 'expo';
 
 import Slides from '../components/Slides';
@@ -14,6 +14,18 @@ const SLIDE_DATA = [
 class WelcomeScreen extends Component {
   // component-level state
   state = { token: null }
+
+  // lifecycle methods
+  async componentWillMount () {
+    // attempt to retrieve fb_token from AsyncStorage
+    let token = await AsyncStorage.getItem('fb_token');
+    // check if token exists
+    if (token) {
+      this.props.navigation.navigate('mapRoute');
+    } else {
+      this.setState({ token: '' });
+    }
+  }
 
   // helper methods
   onSlidesComplete = () => {
