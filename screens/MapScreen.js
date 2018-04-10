@@ -1,10 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text } from 'react-native';
+import { View, Text, ActivityIndicator } from 'react-native';
 import { MapView } from 'expo';
 
 class MapScreen extends Component {
   // component-level state to handle initial region in mapView
   state = {
+    mapLoaded: false,
     region: {
       longitude: -122,
       latitude: 37,
@@ -13,8 +14,22 @@ class MapScreen extends Component {
     }
   }
 
+  // lifecycle methods
+  componentDidMount () {
+    this.setState({ mapLoaded: true })
+  }
+
   // render method
   render () {
+    // render spinner (ActivityIndicator) if mapLoaded = false
+    if (!this.state.mapLoaded) {
+      return (
+        <View>
+          <ActivityIndicator size="large" color="#000000"/>
+        </View>
+      );
+    }
+
     return (
       <View style={styles.container}>
         <MapView
