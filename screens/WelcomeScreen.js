@@ -11,6 +11,9 @@ const SLIDE_DATA = [
 ];
 
 class WelcomeScreen extends Component {
+  // component-level state
+  state = { token: null }
+
   // helper methods
   onSlidesComplete = () => {
     this.props.navigation.navigate('authRoute');
