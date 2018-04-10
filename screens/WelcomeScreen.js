@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { View, Text } from 'react-native';
+import { AppLoading } from 'expo';
 
 import Slides from '../components/Slides';
 
@@ -21,6 +22,11 @@ class WelcomeScreen extends Component {
 
   // render method
   render () {
+    // return AppLoading screen if this.state.token === null
+    if (this.state.token === null) {
+      return <AppLoading/>;
+    }
+
     return (
       <View style={{ flex: 1 }}>
         <Slides data={SLIDE_DATA} onSlidesComplete={this.onSlidesComplete}/>
