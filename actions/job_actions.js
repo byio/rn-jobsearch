@@ -29,6 +29,8 @@ export default fetchJobs = (region) => return async dispatch => {
   try {
     let zip = await reverseGeocode(region);
     const queryUrl = buildQueryUrl(zip);
+    // axios get request
+    let { data } = await axios.get(queryUrl);
   } catch (err) {
     console.log(err);
   }
