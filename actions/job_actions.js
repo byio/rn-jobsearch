@@ -33,7 +33,6 @@ export const fetchJobs = (region) => async dispatch => {
     let { data } = await axios.get(queryUrl);
     // dispatch action
     dispatch({ type: FETCH_JOBS, payload: data });
-    console.log(data);
   } catch (err) {
     console.log(err);
   }
