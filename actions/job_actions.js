@@ -31,6 +31,9 @@ export default fetchJobs = (region) => return async dispatch => {
     const queryUrl = buildQueryUrl(zip);
     // axios get request
     let { data } = await axios.get(queryUrl);
+    // dispatch action
+    dispatch({ type: FETCH_JOBS, payload: data });
+    console.log(data);
   } catch (err) {
     console.log(err);
   }
