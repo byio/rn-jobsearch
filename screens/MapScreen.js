@@ -19,6 +19,12 @@ class MapScreen extends Component {
     this.setState({ mapLoaded: true })
   }
 
+  // helper methods
+  onRegionChangeComplete = (region) => {
+    // console.log(region);
+    this.setState({ region });
+  }
+
   // render method
   render () {
     // render spinner (ActivityIndicator) if mapLoaded = false
@@ -35,6 +41,7 @@ class MapScreen extends Component {
         <MapView
           style={styles.mapView}
           region={this.state.region}
+          onRegionChange={this.onRegionChangeComplete}
         />
       </View>
     );
