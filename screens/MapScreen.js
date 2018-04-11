@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, ActivityIndicator } from 'react-native';
 import { MapView } from 'expo';
+import { Button } from 'react-native-elements';
 
 class MapScreen extends Component {
   // component-level state to handle initial region in mapView
@@ -37,23 +38,37 @@ class MapScreen extends Component {
     }
 
     return (
-      <View style={styles.container}>
+      <View style={styles.mainContainer}>
         <MapView
           style={styles.mapView}
           region={this.state.region}
           onRegionChange={this.onRegionChangeComplete}
         />
+        <View style={styles.buttonContainer}>
+          <Button
+            large
+            title="Search this area"
+            backgroundColor="#009688"
+            icon={{ name: 'search' }}
+          />
+        </View>
       </View>
     );
   }
 }
 
 const styles = {
-  container: {
+  mainContainer: {
     flex: 1
   },
   mapView: {
     flex: 1
+  },
+  buttonContainer: {
+    position: 'absolute',
+    bottom: 20,
+    left: 0,
+    right: 0
   }
 }
 
