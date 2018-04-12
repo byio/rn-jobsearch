@@ -38,7 +38,7 @@ class Swipe extends Component {
     this._panResponder = PanResponder.create({
       onStartShouldSetPanResponder: (event, gesture) => true,
       onPanResponderMove: (event, gesture) => {
-        this.position.setValue({ x: gesture.dx, y: getsture.dy })
+        this.position.setValue({ x: gesture.dx, y: gesture.dy })
       },
       onPanResponderRelease: (event, gesture) => {
         if (gesture.dx > SWIPE_THRESHOLD) {
