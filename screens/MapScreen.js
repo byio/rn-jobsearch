@@ -30,7 +30,9 @@ class MapScreen extends Component {
   }
 
   onButtonPress = () => {
-    this.props.fetchJobs(this.state.region);
+    this.props.fetchJobs(this.state.region, () => {
+      this.props.navigation.navigate('deckRoute');
+    });
   }
 
   // render method

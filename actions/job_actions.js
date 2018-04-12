@@ -25,7 +25,7 @@ const buildQueryUrl = (zip) => {
   return `${QUERY_ROOT_URL}${query}`;
 };
 
-export const fetchJobs = (region) => async dispatch => {
+export const fetchJobs = (region, callback) => async dispatch => {
   try {
     let zip = await reverseGeocode(region);
     const queryUrl = buildQueryUrl(zip);
@@ -33,6 +33,8 @@ export const fetchJobs = (region) => async dispatch => {
     let { data } = await axios.get(queryUrl);
     // dispatch action
     dispatch({ type: FETCH_JOBS, payload: data });
+    // invoke callback function passed from MapScreen
+    callback();
   } catch (err) {
     console.log(err);
   }
