@@ -17,8 +17,8 @@ class DeckScreen extends Component {
   }
 }
 
-const mapStateToProps = ({ jobs }) => {
-  return { jobs: jobs.results };
+const mapStateToProps = state => {
+  return { jobs: state.job.results };
 };
 
 export default connect(mapStateToProps)(DeckScreen);
