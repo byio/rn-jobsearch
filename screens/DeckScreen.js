@@ -19,7 +19,7 @@ class DeckScreen extends Component {
       latitudeDelta: 0.02
     };
     return (
-      <Card title={job.jobtitle}>
+      <Card titleStyle={styles.titleText} title={job.jobtitle}>
         <View style={styles.mapContainer}>
           <MapView
             style={styles.mapView}
@@ -63,6 +63,9 @@ class DeckScreen extends Component {
 const styles = {
   swipeContainer: {
     marginTop: SCREEN_HEIGHT * 0.05
+  },
+  titleText: {
+    height: 20
   },
   mapContainer: {
     height: SCREEN_HEIGHT * 0.5
