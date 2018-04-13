@@ -84,7 +84,7 @@ class Swipe extends Component {
   onSwipeComplete (direction) {
     const { onSwipeRight, onSwipeLeft, data } = this.props;
     const item = data[this.state.cardIndex];
-    console.log(`${item.text} was swiped ${direction}.`);
+    // console.log(`${item.text} was swiped ${direction}.`);
     // handling data returned from swiping left or right
     direction === 'right' ? onSwipeRight(item) : onSwipeLeft(item);
     // advance card stack
