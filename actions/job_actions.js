@@ -6,7 +6,7 @@ import qs from 'qs';
 import { INDEED_PUBLISHER_ID } from 'react-native-dotenv';
 
 // import action types
-import { FETCH_JOBS } from './types';
+import { FETCH_JOBS, LIKE_JOB } from './types';
 
 // define indeed url and query parameters
 const QUERY_ROOT_URL = 'http://api.indeed.com/ads/apisearch?';
@@ -38,4 +38,12 @@ export const fetchJobs = (region, callback) => async dispatch => {
   } catch (err) {
     console.log(err);
   }
+};
+
+export const likeJob = (job) => {
+  console.log(job);
+  return {
+    type: LIKE_JOB,
+    payload: job
+  };
 };
