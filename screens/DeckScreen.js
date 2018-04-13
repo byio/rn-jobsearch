@@ -48,7 +48,7 @@ class DeckScreen extends Component {
   // render method
   render () {
     return (
-      <View>
+      <View style={styles.swipeContainer}>
         <Swipe
           keyProp="jobkey"
           data={this.props.jobs}
@@ -61,6 +61,9 @@ class DeckScreen extends Component {
 }
 
 const styles = {
+  swipeContainer: {
+    marginTop: SCREEN_HEIGHT * 0.05
+  },
   mapContainer: {
     height: SCREEN_HEIGHT * 0.5
   },
