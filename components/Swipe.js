@@ -132,7 +132,7 @@ class Swipe extends Component {
       if (i === this.state.cardIndex) {
         return (
           <Animated.View
-            key={item.id}
+            key={item[this.props.keyProp]}
             style={[ this.getCardStyle(), styles.cardStyle ]}
             {...this._panResponder.panHandlers}
           >
@@ -142,7 +142,7 @@ class Swipe extends Component {
       }
       return (
         <Animated.View
-          key={item.id}
+          key={item[this.props.keyProp]}
           style={[ styles.cardStyle, { top: CASCADING_FACTOR * (i - this.state.cardIndex) } ]}
         >
           {this.props.renderCard(item)}
