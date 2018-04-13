@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Platform } from 'react-native';
 import { Button } from 'react-native-elements';
+import { connect } from 'react-redux';
 
 class ReviewScreen extends Component {
   // define class level properties to specify route-related configurations
@@ -32,4 +33,8 @@ class ReviewScreen extends Component {
   }
 }
 
-export default ReviewScreen;
+const mapStateToProps = ({ likedJobs }) => {
+  return { likedJobs };
+};
+
+export default connect(mapStateToProps)(ReviewScreen);
