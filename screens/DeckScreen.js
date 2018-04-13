@@ -27,12 +27,12 @@ class DeckScreen extends Component {
             cacheEnabled={Platform.OS === 'android' ? true : false}
             initialRegion={initialRegion}
           />
-      </View>
-        <View style={styles.detailContainer}>
-          <Text>{job.company}</Text>
-          <Text>{job.formattedRelativeTime}</Text>
         </View>
-        <Text>
+        <View style={styles.detailContainer}>
+          <Text style={styles.detailText}>{job.company}</Text>
+          <Text style={styles.detailText}>Posted {job.formattedRelativeTime}</Text>
+        </View>
+        <Text style={styles.jobText}>
           {job.snippet.replace(/<\/*b>/g, '')}
         </Text>
       </Card>
@@ -65,17 +65,25 @@ const styles = {
     marginTop: SCREEN_HEIGHT * 0.05
   },
   titleText: {
-    height: 20
+    height: 40,
+    justifyContent: 'center'
   },
   mapContainer: {
-    height: SCREEN_HEIGHT * 0.5
+    height: SCREEN_HEIGHT * 0.3
   },
   mapView: {
     flex: 1
   },
   detailContainer: {
     flexDirection: 'row',
-    justifyContent: 'space-around'
+    justifyContent: 'space-between',
+    marginTop: 10
+  },
+  detailText: {
+    fontStyle: 'italic'
+  },
+  jobText: {
+    marginTop: 10
   }
 };
 
