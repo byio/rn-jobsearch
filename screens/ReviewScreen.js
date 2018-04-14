@@ -26,10 +26,14 @@ class ReviewScreen extends Component {
     return this.props.likedJobs.map(job => {
       // for each job in the array, return the following JSX
       return (
-        <Card>
+        <Card
+          key={job.jobkey}
+        >
           <View>
+            <Text>{job.jobtitle}</Text>
+            <Text>@</Text>
             <Text>{job.company}</Text>
-            <Text>{job.formattedRelativeTime}</Text>
+            <Text>Posted on {job.formattedRelativeTime}</Text>
           </View>
         </Card>
       );
