@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { View, Text, Platform } from 'react-native';
-import { Button } from 'react-native-elements';
+import { View, Text, Platform, ScrollView } from 'react-native';
+import { Card, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 
 class ReviewScreen extends Component {
@@ -20,15 +20,28 @@ class ReviewScreen extends Component {
     }
   });
 
+  // helper methods
+  renderLikedJobs = () => {
+    // map over the likedJobs state returned as an array from likes_reducer
+    return this.props.likedJobs.map(job => {
+      // for each job in the array, return the following JSX
+      return (
+        <Card>
+          <View>
+            <Text>{job.company}</Text>
+            <Text>{job.formattedRelativeTime}</Text>
+          </View>
+        </Card>
+      );
+    });
+  }
+
   // render method
   render () {
     return (
-      <View>
-        <Text>ReviewScreen</Text>
-        <Text>ReviewScreen</Text>
-        <Text>ReviewScreen</Text>
-        <Text>ReviewScreen</Text>
-      </View>
+      <ScrollView>
+        {this.renderLikedJobs()}
+      </ScrollView>
     );
   }
 }
