@@ -32,8 +32,8 @@ class ReviewScreen extends Component {
           <View>
             <Text>{job.jobtitle}</Text>
             <Text>@</Text>
-            <Text>{job.company}</Text>
-            <Text>Posted on {job.formattedRelativeTime}</Text>
+            <Text>{job.company}, {job.formattedLocation}</Text>
+            <Text>Posted {job.formattedRelativeTime}</Text>
           </View>
         </Card>
       );
