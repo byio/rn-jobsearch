@@ -28,6 +28,7 @@ class ReviewScreen extends Component {
       return (
         <Card
           key={job.jobkey}
+          containerStyle={styles.cardContainer}
         >
           <View>
             <Text>{job.jobtitle}</Text>
@@ -35,6 +36,10 @@ class ReviewScreen extends Component {
             <Text>{job.company}, {job.formattedLocation}</Text>
             <Text>Posted {job.formattedRelativeTime}</Text>
           </View>
+          <Button
+            title="Apply Now"
+            backgroundColor="#03A9F4"
+          />
         </Card>
       );
     });
@@ -49,6 +54,12 @@ class ReviewScreen extends Component {
     );
   }
 }
+
+const styles = {
+  cardContainer: {
+    height: 200
+  }
+};
 
 const mapStateToProps = ({ likedJobs }) => {
   return { likedJobs };
