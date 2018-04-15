@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, Text, Platform, ScrollView } from 'react-native';
+import { View, Text, Platform, ScrollView, Linking } from 'react-native';
 import { Card, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
 
@@ -30,7 +30,8 @@ class ReviewScreen extends Component {
         jobtitle,
         company,
         formattedLocation,
-        formattedRelativeTime
+        formattedRelativeTime,
+        url
       } = job;
       // for each job in the array, return the following JSX
       return (
@@ -47,6 +48,7 @@ class ReviewScreen extends Component {
           <Button
             title="Apply Now"
             backgroundColor="#03A9F4"
+            onPress={() => Linking.openURL(url)}
           />
         </Card>
       );
