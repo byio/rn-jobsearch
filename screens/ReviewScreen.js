@@ -24,17 +24,25 @@ class ReviewScreen extends Component {
   renderLikedJobs = () => {
     // map over the likedJobs state returned as an array from likes_reducer
     return this.props.likedJobs.map(job => {
+      // destructure properties from each job object
+      const {
+        jobkey,
+        jobtitle,
+        company,
+        formattedLocation,
+        formattedRelativeTime
+      } = job;
       // for each job in the array, return the following JSX
       return (
         <Card
-          key={job.jobkey}
+          key={jobkey}
           containerStyle={styles.cardContainer}
         >
           <View>
-            <Text>{job.jobtitle}</Text>
+            <Text>{jobtitle}</Text>
             <Text>@</Text>
-            <Text>{job.company}, {job.formattedLocation}</Text>
-            <Text>Posted {job.formattedRelativeTime}</Text>
+            <Text>{company}, {formattedLocation}</Text>
+            <Text>Posted {formattedRelativeTime}</Text>
           </View>
           <Button
             title="Apply Now"
