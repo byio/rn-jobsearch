@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
-import { View, Text, Platform, ScrollView, Linking } from 'react-native';
+import { View, Text, Platform, ScrollView, Linking, Dimensions } from 'react-native';
+import { MapView } from 'expo';
 import { Card, Button } from 'react-native-elements';
 import { connect } from 'react-redux';
+
+// define constants
+const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 class ReviewScreen extends Component {
   // define class level properties to specify route-related configurations
@@ -31,25 +35,44 @@ class ReviewScreen extends Component {
         company,
         formattedLocation,
         formattedRelativeTime,
-        url
+        url,
+        longitude,
+        latitude
       } = job;
+      // define initialRegion for MapView
+      const initialRegion = {
+        longitude,
+        latitude,
+        longitudeDelta: 0.005,
+        latitudeDelta: 0.002
+      };
       // for each job in the array, return the following JSX
       return (
         <Card
           key={jobkey}
           containerStyle={styles.cardContainer}
         >
+          <View style={styles.mapViewContainer}>
+            <MapView
+              style={styles.mapView}
+              cacheEnabled={Platform.OS === 'android'}
+              scrollEnabled={false}
+              initialRegion={initialRegion}
+            />
+          </View>
           <View>
             <Text>{jobtitle}</Text>
             <Text>@</Text>
             <Text>{company}, {formattedLocation}</Text>
             <Text>Posted {formattedRelativeTime}</Text>
           </View>
-          <Button
-            title="Apply Now"
-            backgroundColor="#03A9F4"
-            onPress={() => Linking.openURL(url)}
-          />
+          <View>
+            <Button
+              title="Apply Now"
+              backgroundColor="#03A9F4"
+              onPress={() => Linking.openURL(url)}
+            />
+          </View>
         </Card>
       );
     });
@@ -67,7 +90,13 @@ class ReviewScreen extends Component {
 
 const styles = {
   cardContainer: {
-    height: 200
+    height: SCREEN_HEIGHT * 0.4
+  },
+  mapViewContainer: {
+    height: 100
+  },
+  mapView: {
+    flex: 1
   }
 };
 
