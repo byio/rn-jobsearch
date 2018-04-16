@@ -52,6 +52,7 @@ class ReviewScreen extends Component {
           key={jobkey}
           containerStyle={styles.cardContainer}
           title={jobtitle}
+          titleStyle={styles.titleText}
         >
           <View style={styles.mapViewContainer}>
             <MapView
@@ -89,7 +90,10 @@ class ReviewScreen extends Component {
 
 const styles = {
   cardContainer: {
-    height: SCREEN_HEIGHT * 0.4
+    height: SCREEN_HEIGHT * 0.45
+  },
+  titleText: {
+    height: 40
   },
   mapViewContainer: {
     height: 100
