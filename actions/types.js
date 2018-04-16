@@ -5,3 +5,4 @@ export const FACEBOOK_LOGIN_FAIL = 'facebook_login_fail';
 // job action types
 export const FETCH_JOBS = 'fetch_jobs';
 export const LIKE_JOB = 'like_job';
+export const CLEAR_LIKED_JOBS = 'clear_liked_jobs';
