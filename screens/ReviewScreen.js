@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Platform, ScrollView, Linking, Dimensions } from 'react-native';
 import { MapView } from 'expo';
-import { Card, Button } from 'react-native-elements';
+import { Card, Button, Icon } from 'react-native-elements';
 import { connect } from 'react-redux';
 
 // define constants
@@ -10,7 +10,14 @@ const SCREEN_HEIGHT = Dimensions.get('window').height;
 class ReviewScreen extends Component {
   // define class level properties to specify route-related configurations
   static navigationOptions = ({ navigation }) => ({
-    title: 'Review Jobs',
+    title: 'Liked Jobs',
+    tabBarIcon: ({ tintColor }) => {
+      return <Icon
+        name="favorite"
+        size={25}
+        color={tintColor}
+      />;
+    },
     headerRight: (
       <Button
         backgroundColor='rgba(0, 0, 0, 0)'
