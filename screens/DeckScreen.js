@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { View, Text, Platform, Dimensions } from 'react-native';
 import { connect } from 'react-redux';
-import { Card, Button } from 'react-native-elements';
+import { Card, Button, Icon } from 'react-native-elements';
 import { MapView } from 'expo';
 
 // import components
@@ -14,6 +14,17 @@ import * as actions from '../actions';
 const SCREEN_HEIGHT = Dimensions.get('window').height;
 
 class DeckScreen extends Component {
+  // define class level properties to specify route-related configurations
+  static navigationOptions = ({ navigation }) => ({
+    title: 'Jobs',
+    tabBarIcon: ({ tintColor }) => {
+      return <Icon
+        name="description"
+        size={25}
+        color={tintColor}
+      />;
+    }
+  });
   // helper functions
   renderCard = (job) => {
     const initialRegion = {
