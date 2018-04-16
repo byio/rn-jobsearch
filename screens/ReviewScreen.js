@@ -51,6 +51,7 @@ class ReviewScreen extends Component {
         <Card
           key={jobkey}
           containerStyle={styles.cardContainer}
+          title={jobtitle}
         >
           <View style={styles.mapViewContainer}>
             <MapView
@@ -60,11 +61,9 @@ class ReviewScreen extends Component {
               initialRegion={initialRegion}
             />
           </View>
-          <View>
-            <Text>{jobtitle}</Text>
-            <Text>@</Text>
-            <Text>{company}, {formattedLocation}</Text>
-            <Text>Posted {formattedRelativeTime}</Text>
+          <View style={styles.jobDetailsContainer}>
+            <Text style={styles.italicize}>{company}, {formattedLocation}</Text>
+            <Text style={styles.italicize}>Posted {formattedRelativeTime}</Text>
           </View>
           <View>
             <Button
@@ -95,8 +94,16 @@ const styles = {
   mapViewContainer: {
     height: 100
   },
+  jobDetailsContainer: {
+    marginTop: 10,
+    marginBottom: 10,
+    alignItems: 'center'
+  },
   mapView: {
     flex: 1
+  },
+  italicize: {
+    fontStyle: 'italic'
   }
 };
 
