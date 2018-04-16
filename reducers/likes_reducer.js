@@ -11,7 +11,7 @@ export default (state = [], action) => {
       return _.uniqBy([
         action.payload, ...state
       ], 'jobkey');
-    case: CLEAR_LIKED_JOBS:
+    case CLEAR_LIKED_JOBS:
       return [];
     default:
       return state;
