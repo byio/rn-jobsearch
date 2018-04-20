@@ -19,6 +19,7 @@ const store = createStore(
 persistStore(
   store,
   { storage: AsyncStorage, whitelist: ['likedJobs'] }
+  // add .purge() at the end in dev env to clear state persisted in AsyncStorage
 );
 
 export default store;
