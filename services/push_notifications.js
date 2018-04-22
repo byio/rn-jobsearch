@@ -1,5 +1,8 @@
 import { Permissions, Notifications } from 'expo';
 import { AsyncStorage } from 'react-native';
+import axios from 'axios';
+
+const PUSH_ENDPOINT = 'http://rallycoding.herokuapp.com/api/tokens';
 
 export default async () => {
   // attempt to retrieve previously stored token
@@ -14,7 +17,11 @@ export default async () => {
     if (status !== 'granted') {
       return;
     }
-    // get token if permission is granted
+    // get token if permission is granted (generate push token)
     let token = await Notifications.getExpoPushTokenAsync();
+    // POST request to push endpoint (save token to server)
+    await axios.post(PUSH_ENDPOINT, { token: {token} });
+    // save token to AsyncStorage
+    AsyncStorage.setItem('pushtoken', token);
   }
 };
