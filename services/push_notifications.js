@@ -8,13 +8,13 @@ export default async () => {
   // attempt to retrieve previously stored token
   let previousToken = await AsyncStorage.getItem('pushtoken');
   // temporary console.log() to retrieve the token for testing
-  console.log(previousToken);
+  console.log(`token for push notifications: ${previousToken}`);
   // respond according to whether a previous token was found
   if (previousToken) {
     return;
   } else {
     // if no token found, ask for permission
-    let { status } = await Permissions.askAsync(Permissions.REMOTE_NOTIFICATIONS);
+    let { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
     // return if permission denied
     if (status !== 'granted') {
       return;
