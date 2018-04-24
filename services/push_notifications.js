@@ -7,6 +7,8 @@ const PUSH_ENDPOINT = 'http://rallycoding.herokuapp.com/api/tokens';
 export default async () => {
   // attempt to retrieve previously stored token
   let previousToken = await AsyncStorage.getItem('pushtoken');
+  // temporary console.log() to retrieve the token for testing
+  console.log(previousToken);
   // respond according to whether a previous token was found
   if (previousToken) {
     return;
