@@ -14,7 +14,7 @@ export default async () => {
     return;
   } else {
     // if no token found, ask for permission
-    let { status } = await Permissions.askAsync(Permissions.NOTIFICATIONS);
+    let { status } = await Permissions.getAsync(Permissions.NOTIFICATIONS);
     // return if permission denied
     if (status !== 'granted') {
       return;
