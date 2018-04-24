@@ -12,7 +12,7 @@ export default async () => {
     return;
   } else {
     // if no token found, ask for permission
-    let { status } = await Permissions.askAsync(Permission.REMOTE_NOTIFICATIONS);
+    let { status } = await Permissions.askAsync(Permissions.REMOTE_NOTIFICATIONS);
     // return if permission denied
     if (status !== 'granted') {
       return;
